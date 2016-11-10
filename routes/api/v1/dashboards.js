@@ -5,40 +5,33 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/', (request, response, next) => {
-  Dashboard.find((error, post) => {
-    if (error) return next(error)
-    response.json(post)
-  })
+  Dashboard.find().exec()
+    .then( dashboard => response.json( dashboard ) )
+    .catch( error => next( error ) )
 })
 
 router.post('/', (request, response, next) => {
-  Dashboard.create(request.body, (error, post) => {
-    if (error) return next(error)
-    response.json(post)
-  })
+  Dashboard.create( request.body )
+    .then( dashboard => response.json( dashboard ) )
+    .catch( error => next( error ) )
 })
 
 router.get('/:id', (request, response, next) => {
-  Dashboard.findById(request.params.id, (error, post) => {
-    if (error) return next(error)
-    response.json(post)
-  })
+  Dashboard.findById( request.params.id ).exec()
+    .then( dashboard => response.json( dashboard ) )
+    .catch( error => next( error ) )
 })
 
 router.put('/:id', (request, response, next) => {
-  const name  = request.params.id
-
-  Dashboard.findByIdAndUpdate(name, request.body, (error, post) => {
-    if (error) return next(error)
-    response.json(post)
-  })
+  Dashboard.findByIdAndUpdate( request.params.id, request.body ).exec()
+    .then( dashboard => response.json( dashboard ) )
+    .catch( error => next( error ) )
 })
 
 router.delete('/:id',(request, response, next) => {
-  Dashboard.findByIdAndRemove(request.params.id, request.body, (error, post) => {
-    if (error) return next(error)
-    response.json(post)
-  })
+  Dashboard.findByIdAndRemove( request.params.id ).exec()
+    .then( dashboard => response.json( dashboard ) )
+    .catch( error => next( error ) )
 })
 
 router.post('/:id/widgets', (request, response, next) => {
@@ -51,19 +44,6 @@ router.post('/:id/widgets', (request, response, next) => {
     .then( addWidget( request.body ))
     .then( dashboard => response.json( dashboard ) )
     .catch( error => next( error ) )
-
-  // Dashboard.findById(request.params.id, (error, dashboard) => {
-  //   if (error) return next(error)
-  //
-  //   let newWidget = new Widget(request.body)
-  //
-  //   dashboard.widgets.push(newWidget)
-  //
-  //   dashboard.save((error) => {
-  //     if (error) return next(error)
-  //   })
-  //   response.json(dashboard)
-  // })
 })
 
 module.exports = router
