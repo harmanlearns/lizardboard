@@ -42,18 +42,28 @@ router.delete('/:id',(request, response, next) => {
 })
 
 router.post('/:id/widgets', (request, response, next) => {
-  Dashboard.findById(request.params.id, (error, dashboard) => {
-    if (error) return next(error)
+  const addWidget = widgetData => dashboard => {
+    dashboard.widgets.push( new Widget( widgetData ) )
+    return dashboard.save()
+  }
 
-    let newWidget = new Widget(request.body)
+  Dashboard.findById( request.params.id ).exec()
+    .then( addWidget( request.body ))
+    .then( dashboard => response.json( dashboard ) )
+    .catch( error => next( error ) )
 
-    dashboard.widgets.push(newWidget)
-
-    dashboard.save((error) => {
-      if (error) return next(error)
-    })
-    response.json(dashboard)
-  })
+  // Dashboard.findById(request.params.id, (error, dashboard) => {
+  //   if (error) return next(error)
+  //
+  //   let newWidget = new Widget(request.body)
+  //
+  //   dashboard.widgets.push(newWidget)
+  //
+  //   dashboard.save((error) => {
+  //     if (error) return next(error)
+  //   })
+  //   response.json(dashboard)
+  // })
 })
 
 module.exports = router
