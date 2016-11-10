@@ -34,6 +34,20 @@ router.delete('/:id',(request, response, next) => {
     .catch( error => next( error ) )
 })
 
+// get all widgets by dashboard_id
+// GET dashboards/:id/widgets/
+
+// router.get('/:id/widgets/', (request, response, next) => {
+//   const findAllWidgets = widgetData => dashboard => {
+//     return dashboard.widgets.find().exec()
+//   }
+//   Widget.find({}, 'widgets'
+//   Dashboard.findById( request.params.id ).exec()
+//     .then( ).exec())
+//     .then( dashboard => response.json( dashboard ) )
+//     .catch( error => next( error ) )
+// })
+
 router.post('/:id/widgets', (request, response, next) => {
   const addWidget = widgetData => dashboard => {
     dashboard.widgets.push( new Widget( widgetData ) )
@@ -45,5 +59,11 @@ router.post('/:id/widgets', (request, response, next) => {
     .then( dashboard => response.json( dashboard ) )
     .catch( error => next( error ) )
 })
+
+// update widget by dashboard_id and widget_id
+// PUT dashboards/:id/widgets/:id
+
+// delete widget by dashboard_id and widget_id
+// DELETE dashboards/:id/widgets/:id
 
 module.exports = router
