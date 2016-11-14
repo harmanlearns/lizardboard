@@ -21,6 +21,7 @@ A mongodb database named lizardboard must be created prior to starting the appli
  - [x] GET /dashboards/:id - get single dashboard entry
  - [x] PUT /dashboards/:id { data } - update single dashboard entry
  - [x] DELETE /dashboards/:id - delete single dashboard entry
+ - [x] GET /dashboards/:id/widgets - get all widgets for single dashboard entry
  - [x] POST /dashboards/:id/widgets - create widgets for single dashboard entry
 - [x] [Create New Dashboard #23](https://github.com/GuildCrafts/lizardboard/issues/23)
 - [x] [Delete Dashboard #25](https://github.com/GuildCrafts/lizardboard/issues/25)
