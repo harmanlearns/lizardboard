@@ -1,4 +1,4 @@
-# Lizardboard Team Name: #Shaggy-Sheatbill
+# Lizardboard Team Name: #Shaggy-Sheathbill
 
 An open source clone of [geckoboard](https://www.geckoboard.com/). Interested in contributing? Take a look at the [project page](https://github.com/GuildCrafts/lizardboard/projects) and [issues page](https://github.com/GuildCrafts/lizardboard/issues) for outstanding issues.
 
