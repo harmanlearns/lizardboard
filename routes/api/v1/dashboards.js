@@ -48,7 +48,7 @@ router.delete('/:id',(request, response, next) => {
 //     .catch( error => next( error ) )
 // })
 
-router.post('/:id/widgets', (request, response, next) => {
+router.post('/:id/dashboardwidgets', (request, response, next) => {
   const addWidget = widgetData => dashboard => {
     dashboard.dashboard_widgets.push( new DashboardWidget( widgetData ) )
     return dashboard.save()
