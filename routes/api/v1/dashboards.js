@@ -50,7 +50,7 @@ router.delete('/:id',(request, response, next) => {
 
 router.post('/:id/widgets', (request, response, next) => {
   const addWidget = widgetData => dashboard => {
-    dashboard.widgets.push( new DashboardWidget( widgetData ) )
+    dashboard.dashboard_widgets.push( new DashboardWidget( widgetData ) )
     return dashboard.save()
   }
 

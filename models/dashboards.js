@@ -11,7 +11,7 @@ const DashboardSchema = new Schema ({
   responsive: { type: Boolean, required: true, default: true },
   created_at: { type: Date, required: true, default: Date.now },
   users: [{ type: Schema.Types.ObjectId, ref:'User' }],
-  widgets: [ DashboardWidgetSchema ]
+  dashboard_widgets: [ DashboardWidgetSchema ]
 })
 
 
