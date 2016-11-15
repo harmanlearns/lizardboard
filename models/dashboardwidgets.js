@@ -8,6 +8,6 @@ const DashboardWidgetSchema = new Schema ({
   contents: String
 })
 
-const Widget = mongoose.model( 'Widget', DashboardWidgetSchema )
+const DashboardWidget = mongoose.model( 'DasboardWidget', DashboardWidgetSchema )
 
-module.exports = { DashboardWidgetSchema, Widget }
+module.exports = { DashboardWidgetSchema, DashboardWidget }

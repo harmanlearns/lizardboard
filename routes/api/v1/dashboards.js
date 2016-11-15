@@ -1,5 +1,5 @@
 const Dashboard = require('../../../models/dashboards.js')
-const { Widget } = require('../../../models/dashboardwidgets.js')
+const { DashboardWidget } = require('../../../models/dashboardwidgets.js')
 
 const express = require('express')
 const router = express.Router()
@@ -50,7 +50,7 @@ router.delete('/:id',(request, response, next) => {
 
 router.post('/:id/widgets', (request, response, next) => {
   const addWidget = widgetData => dashboard => {
-    dashboard.widgets.push( new Widget( widgetData ) )
+    dashboard.widgets.push( new DashboardWidget( widgetData ) )
     return dashboard.save()
   }
 
