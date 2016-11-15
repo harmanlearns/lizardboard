@@ -49,13 +49,13 @@ router.delete('/:id',(request, response, next) => {
 // })
 
 router.post('/:id/dashboardwidgets', (request, response, next) => {
-  const addWidget = widgetData => dashboard => {
-    dashboard.dashboard_widgets.push( new DashboardWidget( widgetData ) )
+  const addDashboardWidget = dashboardWidgetData => dashboard => {
+    dashboard.dashboard_widgets.push( new DashboardWidget( dashboardWidgetData ) )
     return dashboard.save()
   }
 
   Dashboard.findById( request.params.id ).exec()
-    .then( addWidget( request.body ))
+    .then( addDashboardWidget( request.body ))
     .then( dashboard => response.json( dashboard ) )
     .catch( error => next( error ) )
 })
