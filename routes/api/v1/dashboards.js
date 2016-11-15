@@ -1,5 +1,5 @@
 const Dashboard = require('../../../models/dashboards.js')
-const { Widget } = require('../../../models/widgets.js')
+const { Widget } = require('../../../models/dashboardwidgets.js')
 
 const express = require('express')
 const router = express.Router()

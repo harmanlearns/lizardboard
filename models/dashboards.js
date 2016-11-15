@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 const User = require('./users.js')
-const { WidgetSchema } = require('./widgets.js')
+const { WidgetSchema } = require('./dashboardwidgets.js')
 
 const DashboardSchema = new Schema ({
   name: { type: String, required: true, default: 'Company Dashboard' },
