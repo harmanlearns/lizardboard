@@ -36,7 +36,7 @@ router.delete( '/:id',( request, response ) => {
     .catch( errorResponse( response ))
 })
 
-router.post( '/:id/widgets/', ( request, response ) => {
+router.post( '/:id/widgets', ( request, response ) => {
   Dashboard.findById( request.params.id ).exec()
     .then( addWidget( request.body ))
     .then( dashboard => response.status( 201 ).json( dashboard ))
