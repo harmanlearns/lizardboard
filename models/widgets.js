@@ -8,4 +8,6 @@ const WidgetSchema = new Schema ({
   contents: String
 })
 
-module.exports = { WidgetSchema }
+const Widget = mongoose.model( 'Widget', WidgetSchema )
+
+module.exports = { WidgetSchema, Widget }
