@@ -8,4 +8,4 @@ const WidgetSchema = new Schema ({
   contents: String
 })
 
-module.exports = { WidgetSchema, Widget }
+module.exports = { WidgetSchema }
